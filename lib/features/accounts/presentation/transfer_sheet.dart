@@ -110,7 +110,7 @@ class _TransferSheetState extends State<TransferSheet> {
     if (transferType == "same_bank") limit = 20000000;
     if (transferType == "sheba") limit = 50000000;
 
-    if (amount >= limit) {
+    if (amount > limit) {
       showError("Amount exceeds limit for this transfer type");
       return;
     }
@@ -137,7 +137,7 @@ class _TransferSheetState extends State<TransferSheet> {
       selectedAccount!.transactions.add(
         TransactionModel(
           id: DateTime.now().millisecondsSinceEpoch.toString(),
-          type: "depositt",
+          type: "deposit",
           amount: amount,
           date: DateTime.now(),
           description: "Received from ${widget.account.cardNumber}",
