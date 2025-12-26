@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/widgets/widgets_imports.dart';
 import 'package:flutter_application_1/features/auth/presentation/register_screen.dart';
-import 'package:flutter_application_1/services/bank_api_service.dart';
-
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -17,7 +15,11 @@ class _LoginScreenState extends State<LoginScreen> {
 
   bool _loading = false;
 
-  final _api = BankApiService();
+  final Map<String, String> _fakeUsers = {
+    'zahra': '1234',
+    'zey': '1234',
+    'user': 'password',
+  };
 
   @override
   void dispose() {
@@ -35,7 +37,9 @@ class _LoginScreenState extends State<LoginScreen> {
     final password = _passwordCtrl.text.trim();
 
     try {
-      final ok = await _api.login(username, password);
+      await Future.delayed(const Duration(milliseconds: 600));
+
+      final ok = _fakeUsers[username] == password;
 
       if (!mounted) return;
 
