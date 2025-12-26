@@ -4,7 +4,7 @@ class AppTheme {
   static ThemeData get light => ThemeData(
         useMaterial3: true,
         colorScheme: ColorScheme.fromSeed(
-          seedColor: const Color(0xFF6EE7B7), // light mint green
+          seedColor: const Color(0xFF6EE7B7), 
           brightness: Brightness.light,
         ),
         scaffoldBackgroundColor: const Color(0xFFF6FFFB),
@@ -19,7 +19,7 @@ class AppTheme {
   static ThemeData get dark => ThemeData(
         useMaterial3: true,
         colorScheme: ColorScheme.fromSeed(
-          seedColor: const Color(0xFF34D399), // soft green
+          seedColor: const Color(0xFF34D399),
           brightness: Brightness.dark,
         ),
         scaffoldBackgroundColor: const Color(0xFF0B2F24),
