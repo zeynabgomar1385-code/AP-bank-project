@@ -16,7 +16,7 @@ class _LoginScreenState extends State<LoginScreen> {
   bool _loading = false;
 
   final Map<String, String> _fakeUsers = {
-    'zahra': '1234',
+    'admin': '1234',
     'zey': '1234',
     'user': 'password',
   };
@@ -48,7 +48,12 @@ class _LoginScreenState extends State<LoginScreen> {
       });
 
       if (ok) {
-        Navigator.of(context).pushReplacementNamed('/home');
+        Navigator.of(context).pushReplacementNamed(
+          '/home',
+          arguments: {
+            'username': username,
+          },
+        );
       } else {
         ScaffoldMessenger.of(context).showSnackBar(
           const SnackBar(content: Text('نام کاربری یا رمز اشتباه است')),
@@ -101,8 +106,8 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                   const SizedBox(height: 20),
                   PrimaryButton(
-                    label: 'Login',
-                    loading: _loading,
+                    text: 'Login',
+                    isLoading: _loading,
                     onPressed: _onLogin,
                   ),
                   const SizedBox(height: 12),
