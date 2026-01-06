@@ -21,7 +21,17 @@ class BankApp extends StatelessWidget {
       initialRoute: '/login',
       routes: {
         '/login': (context) => const LoginScreen(),
-        '/home': (context) => const HomeScreen(),
+        '/home': (context) {
+          final args = ModalRoute.of(context)?.settings.arguments as Map<String, dynamic>?;
+
+          final username = args?['username'] as String?;
+          final name = args?['name'] as String?;
+
+          return HomeScreen(
+            username: (username != null && username.isNotEmpty) ? username : 'guest',
+            name: name,
+          );
+        },
       },
     );
   }
