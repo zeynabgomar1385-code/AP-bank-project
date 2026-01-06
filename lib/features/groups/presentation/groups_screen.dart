@@ -58,6 +58,11 @@ class GroupsScreen extends StatelessWidget {
                       ),
                     ],
                   ),
+                  const SizedBox(height: 4),
+                  Text(
+                    'Owner: ${g.ownerUsername} • Created: ${g.createdAt.year}/${g.createdAt.month}/${g.createdAt.day}',
+                    style: Theme.of(context).textTheme.bodySmall,
+                  ),
                   const SizedBox(height: 8),
                   Text(
                     members,
